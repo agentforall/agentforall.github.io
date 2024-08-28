@@ -1,0 +1,59 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {agentTypes} from "../data"
+---
+
+<Layout title="Agents For All">
+    <h1 class="text-center mt-2 mb-0">Register As a Agent</h1>
+    <form class=" w-[70vw] ml-auto mr-auto mt-5">
+        <fieldset>
+          <label>
+            Full name
+            <input
+              name="full_name"
+              placeholder="Full name"
+              autocomplete="given-name"
+            />
+          </label>
+          <label>
+            Email
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              autocomplete="email"
+            />
+          </label>
+          <label>
+            Phone Number
+            <input
+              type="text"
+              name="email"
+              placeholder="Phone Number"
+            />
+          </label>
+          <label>
+            Category
+              <select name="category" aria-label="Select Your Category." required>
+                  <option selected disabled value="">
+                        Select your Category
+                    </option>
+                    {
+                        agentTypes.map((type) => {
+                            return <option>{type}</option>
+                        })
+                    }
+            </select>
+        </label>
+        <label id="check">
+            <input type="checkbox" name="english" checked />
+            I Accept The Terms And Conditions
+          </label>
+        </fieldset>
+        <input
+          type="submit"
+          value="Register"
+        />
+      </form>
+
+</Layout>

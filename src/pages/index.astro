@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {Icon} from "astro-icon/components"
+---
+
+<Layout title="Agents For All">
+    <main class="h-fit bg-[url(/bg.jpg)] bg-cover max-w-screen w-screen bg-transparent">
+        <div class="flex min-w-screen bg-transaparent flex-row max-sm:flex-col">
+            <h1 id="header" class="max-sm:text-[3.45rem] max-sm:pl-4 text-balance max-sm:mx-auto w-1/2 text-8xl font-sigma max-sm:leading-[1.43em] leading-[1.35em] pt-8 text-center">
+                <a href="/book" class="text-cyan-400  hover:text-cyan-600 z-10"> 
+                    Book Agents,
+                </a>
+                Anytime & Anywhere
+            </h1>
+            <canvas id="canvas" class="max-md:w-[50vw] max-sm:mx-auto min-sm:min-w-screen" width="700" height="700"></canvas>
+        </div>  
+        <div id="categories" style="display: grid;" 
+        class="grid-rows-2 h-[100vh] place-items-center mt-28 grid-cols-2 max-sm:grid-cols-1"> 
+
+            <div class="flex justify-center  items-center flex-col">
+                <Icon class="" size="80px" name="mdi:attach-money"/>
+                
+                All Prices And Categories Available!</div>
+            <div class="flex justify-center  items-center flex-col">
+                <Icon class="" size="80px" name="mdi:customer-service"/>
+                
+                Customer Care</div>
+            <div class="flex justify-center  items-center flex-col">
+                <Icon class="" size="80px" name="mdi:cellphone"/>
+                
+                Compatible With Any Device With Internet</div>
+            <div class="flex justify-center  items-center flex-col max-sm:mt-12">
+                <Icon class="" size="80px" name="mdi:cursor-default-click"/>
+                
+                Easy To Use</div>
+        </div>
+        </main>
+
+        <svg id="bg" class="w-screen h-screen z-[-5] fixed ">
+        </svg>
+
+    <script> 
+    import { animate, scroll, stagger } from "motion";
+    
+    document.addEventListener("astro:page-load", () => {
+ 
+    });
+    </script>
+
+    
+
+    <script is:inline data-astro-rerun>
+        {
+
+            let r = new rive.Rive({
+                src: "/anim.riv",
+        // OR the path to a discoverable and public Rive asset
+        // src: '/public/example.riv',
+        canvas: document.getElementById("canvas") ,
+        autoplay: true,
+        stateMachines: "social media state machine",
+        onLoad: () => {
+            r.resizeDrawingSurfaceToCanvas();
+        },
+    });
+}
+	</script>
+</Layout>

@@ -1,0 +1,25 @@
+@font-face {
+    font-family: sigma;
+    src: url(/font.ttf);
+}
+
+.font-sigma {
+    font-family: sigma;
+}   
+
+
+circle {
+    animation: move 2s infinite forwards;
+}
+
+@keyframes move {
+    0% {
+        transform: translate(0px, 0px+var(--motion-translateY));
+    }
+    50% {
+        transform: translate(-10px, -10px+var(--motion-translateY));
+    }
+    100% {
+        transform: translate(0px, 0px+var(--motion-translateY));
+    }
+}

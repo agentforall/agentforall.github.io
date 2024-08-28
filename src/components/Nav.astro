@@ -1,0 +1,40 @@
+---
+const Pages = new Map(
+	[
+		["/", "Home"],
+		["/book", "Book Agents"],
+		["/register", "Register"]
+	]
+)
+
+const active = Pages.get(Astro.url.pathname) as string
+let entries = Array.from(Pages.entries())
+---
+
+<nav class="px-5 bg-slate-800">
+    <ul>
+        <li><strong>Agents For All</strong></li>
+    </ul>
+    <ul>
+       {
+			entries.map(([key, value]) => {
+				let isActive = value == active
+		
+				return <li class:list={[{
+					"text-cyan-400": isActive
+				}]}>
+						<a href={key}>
+							{value}
+						</a>
+						{
+							isActive ? (
+								<div transition:name="hover" class="w-full h-[.25em] bg-red-400"> 
+								</div>
+							) : null
+						}
+					</li>
+			})
+	   }
+    </ul>
+
+</nav>
