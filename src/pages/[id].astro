@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro"
+import { data } from "../data.ts"
+import {Icon} from "astro-icon/components"
+
+export function getStaticPaths() {
+  return data.map((d) => {
+    return {
+        params: {
+            id: d.index
+        }
+    }
+  })
+}
+
+const {id} = Astro.params
+
+const user = data[id]
+---
+
+<Layout>
+    <h2 class="text-center mt-3 h-fit mb-0">
+        Booking {user.name}
+    </h2>
+    
+    <button class="w-fit h-fit m-2 flex flex-row font-4xl items-center gap-3 mx-auto">
+        <Icon size="50px" name="mdi:call" /> Call Agent
+    </button> 
+      <button class="w-fit h-fit m-2 flex flex-row font-4xl mx-auto items-center gap-3 secondary">
+        <Icon size="50px" name="mdi:payment" /> Pay, For Booking
+    </button>
+</Layout>
