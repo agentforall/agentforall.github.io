@@ -6,6 +6,7 @@ export type AgentType = typeof agentTypes[number];
 export const data: {
     name: string;
     type: AgentType | AgentType[];
+    index: number;
     rating: number; // Add a rating field
 }[] = [
     {
