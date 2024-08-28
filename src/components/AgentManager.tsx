@@ -68,13 +68,17 @@ const AgentManager = () => {
 
             <div ref={parent} style="display: grid;" class="grid-flow-row min-sm:grid-cols-2 place-items-center gap-3">
                 <For each={currentResults()}>{(result, i) =>
-                <a  style="display: flex;" class="bg-slate-700 w-[80vw]  text-center items-center gap-2 rounded-lg p-3">
+                <a href={"/"+ result.index} style="display: flex;" class="bg-slate-700 w-[80vw]  text-center items-center gap-2 rounded-lg p-3">
                     <Icon icon="mdi:account-circle" width={30} />
                     {result.name} | {
                         Array.isArray(result.type) ?
                         result.type.join(", ")
                         : result.type
                     }
+                    <br/> 
+                    Rating: {result.rating}
+                    <br/>
+                    Experience: {Math.floor((result.rating/3 + result.rating/2)*100)/100}
                     </a>
                 }</For>
             </div>
